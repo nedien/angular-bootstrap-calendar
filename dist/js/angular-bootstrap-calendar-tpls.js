@@ -1704,6 +1704,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 
 	    function filterEventsInPeriod(events, startPeriod, endPeriod) {
+        if(!events){
+          return false;
+        }
+
 	      return events.filter(function(event) {
 	        return eventIsInPeriod(event, startPeriod, endPeriod);
 	      });

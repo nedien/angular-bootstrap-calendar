@@ -181,6 +181,10 @@ angular
         dayCounter.add(1, 'day');
       }
 
+      if(!events){
+        return {days: days, events: []};
+      }
+
       var eventsSorted = filterEventsInPeriod(events, startOfWeek, endOfWeek).map(function(event) {
 
         var eventStart = moment(event.startsAt).startOf('day');

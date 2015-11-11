@@ -61,10 +61,12 @@ angular
         vm.viewTitle = calendarTitle[vm.view](vm.currentDay);
       }
 
-      vm.events = vm.events.filter(eventIsValid).map(function(event, index) {
-        Object.defineProperty(event, '$id', {enumerable: false, configurable: true, value: index});
-        return event;
-      });
+      if(vm.events){
+        vm.events = vm.events.filter(eventIsValid).map(function(event, index) {
+          Object.defineProperty(event, '$id', {enumerable: false, configurable: true, value: index});
+          return event;
+        });
+      }
 
       //if on-timespan-click="calendarDay = calendarDate" is set then don't update the view as nothing needs to change
       var currentDate = moment(vm.currentDay);
